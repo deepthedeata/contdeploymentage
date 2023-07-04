@@ -9,7 +9,7 @@ import requests
 from io import BytesIO
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
-st.title("Bean Image Classifier")
+st.title("Grain Age Image Classifier")
 st.text("Provide URL of bean Image for image classification")
 
 @st.cache(allow_output_mutation=True)
@@ -20,7 +20,7 @@ def load_model():
 with st.spinner('Loading Model Into Memory....'):
   model = load_model()
 
-classes=['angular_leaf_spot','bean_rust','healthy']
+classes=['12months', '3months', '6months', '9months', 'new']
 
 def decode_img(image):
   img = tf.image.decode_jpeg(image, channels=3)
